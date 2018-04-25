@@ -6,6 +6,10 @@ const users = {
   leonarda: {
     account: 'leonarda',
     privateKey: '5KLDetV6Zq9uJKNdu8XAkWqY5pSoMaVRq8rMQntnvkqxmPDVXHS',
+  },
+  noelle: {
+    account: 'noelle',
+    privateKey: '5KYUJMVbWiBHSjtWq9USkvwoNFYXHi7UmYTrpDvfBwBgquPpYX',
   }
 };
 

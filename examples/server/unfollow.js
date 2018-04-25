@@ -3,9 +3,9 @@ const users = require('../config/users');
 
 (async () => {
   try {
-    const response = await scorum.broadcast.followWithAsync(users.kristie.privateKey, {
+    const response = await scorum.broadcast.unfollowWithAsync(users.kristie.privateKey, {
       account: users.kristie.account,
-      follow: users.leonarda.account,
+      unfollow: users.leonarda.account,
     });
     console.log(response);
   } catch (err) {
