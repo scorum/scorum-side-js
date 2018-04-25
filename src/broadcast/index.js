@@ -38,23 +38,14 @@ scorumBroadcast.send = function scorumBroadcast$send(tx, privKeys, callback) {
 };
 
 scorumBroadcast._prepareTransaction = function scorumBroadcast$_prepareTransaction(tx) {
-  const propertiesP = scorumAPI.getDynamicGlobalPropertiesAsync();
-  return propertiesP.then(properties => {
-    // Set defaults on the transaction
-    const chainDate = new Date(properties.time + 'Z');
-    const refBlockNum = (properties.last_irreversible_block_num - 1) & 0xffff;
-    return scorumAPI.getBlockAsync(properties.last_irreversible_block_num).then(block => {
-      const headBlockId = block.previous;
-      return Object.assign(
-        {
-          ref_block_num: refBlockNum,
-          ref_block_prefix: new Buffer(headBlockId, 'hex').readUInt32LE(4),
-          expiration: new Date(chainDate.getTime() + 600 * 1000)
-        },
-        tx
-      );
-    });
-  });
+  return Promise.resolve(Object.assign(
+    {
+      ref_block_num: 0,
+      ref_block_prefix: 0,
+      expiration: new Date(Date.now() + 600 * 1000)
+    },
+    tx
+  ));
 };
 
 // Generated wrapper ----------------------------------------------------------
@@ -102,11 +93,12 @@ operations.forEach(operation => {
   };
 
   scorumBroadcast[operationName] = function scorumBroadcast$specializedSend(wif, ...args) {
-    debug(`Parsing operation "${operationName}" with`, { args });
+    debug(`Parsing operation "${operationName}" with`, { args });;
     const options = operationParams.reduce((memo, param, i) => {
       memo[param] = args[i]; // eslint-disable-line no-param-reassign
       return memo;
     }, {});
+
     const callback = args[operationParams.length];
     return scorumBroadcast[`${operationName}With`](wif, options, callback);
   };

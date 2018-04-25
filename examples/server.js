@@ -1,35 +1,13 @@
-var steem = require('../lib');
+var scorum = require('../lib');
 
-steem.api.getAccountCount(function(err, result) {
-	console.log(err, result);
-});
+scorum.api.setOptions({ url: 'https://blog-api-dev.scorum.com/' });
+scorum.config.set('address_prefix', 'SCR');
+scorum.config.set('chain_id', 'd3c1f19a4947c296446583f988c43fd1a83818fabaf3454a0020198cb361ebd2');
 
-steem.api.getAccounts(['dan'], function(err, result) {
-	console.log(err, result);
-	var reputation = steem.formatter.reputation(result[0].reputation);
-	console.log(reputation);
-});
+async function init() {
+  const a = await scorum.api.getProfileAsync('kristie');
+  // const a = await scorum.broadcast.registerAsync('', 'kristie');
+  console.log(a);
+}
 
-steem.api.getState('trending/steemit', function(err, result) {
-	console.log(err, result);
-});
-
-steem.api.getFollowing('ned', 0, 'blog', 10, function(err, result) {
-	console.log(err, result);
-});
-
-steem.api.getFollowers('dan', 0, 'blog', 10, function(err, result) {
-	console.log(err, result);
-});
-
-steem.api.streamOperations(function(err, result) {
-	console.log(err, result);
-});
-
-steem.api.getDiscussionsByActive({
-  limit: 10,
-  start_author: 'thecastle',
-  start_permlink: 'this-week-in-level-design-1-22-2017'
-}, function(err, result) {
-	console.log(err, result);
-});
+init();

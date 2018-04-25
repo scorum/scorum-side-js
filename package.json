@@ -1,6 +1,6 @@
 {
-  "name": "@scorum/scorum-js",
-  "version": "1.4.1",
+  "name": "@scorum/scorum-side-js",
+  "version": "1.0.0",
   "description": "Scorum.js the JavaScript API for Scorum blockchain",
   "main": "lib/index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/scorum/scorum-js.git"
+    "url": "git+https://github.com/scorum/scorum-side-js.git"
   },
   "keywords": [
     "scorum",
@@ -33,9 +33,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/scorum/scorum-js/issues"
+    "url": "https://github.com/scorum/scorum-side-js/issues"
   },
-  "homepage": "https://github.com/scorum/scorum-js#readme",
+  "homepage": "https://github.com/scorum/scorum-side-js#readme",
   "dependencies": {
     "@steemit/rpc-auth": "^1.1.0",
     "bigi": "^1.4.2",

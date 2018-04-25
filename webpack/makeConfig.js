@@ -69,7 +69,7 @@ function makeConfig(options) {
   return {
     devtool: isDevelopment ? 'cheap-eval-source-map' : 'source-map',
     entry: {
-      scorum: path.join(options.baseDir, 'src/browser.js'),
+      'scorum-side': path.join(options.baseDir, 'src/browser.js'),
       'scorum-tests': path.join(options.baseDir, 'test/api.test.js')
     },
     output: {
