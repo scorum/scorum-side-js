@@ -22,6 +22,6 @@ module.exports = [
   {
     roles: ['active', 'owner'],
     operation: 'upload_media',
-    params: ['account', 'id', 'media']
+    params: ['account', 'id', 'media', 'content_type']
   }
 ];

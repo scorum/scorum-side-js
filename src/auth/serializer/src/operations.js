@@ -71,7 +71,8 @@ const unfollow = new Serializer('unfollow', {
 const upload_media = new Serializer('upload_media', {
   account: string,
   id: string,
-  media: string
+  media: string,
+  content_type: string
 });
 
 const dummy = new Serializer('dummy', {
