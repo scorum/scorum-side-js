@@ -32,7 +32,9 @@ class PrivateKey {
     return new PrivateKey(BigInteger.fromBuffer(buf));
   }
 
-  /** @arg {string} seed - any length string.  This is private, the same seed produces the same private key every time.  */
+  /** @arg {string} seed - any length string.
+   *  This is private, the same seed produces the same private key every time.
+  */
   static fromSeed(seed) {
     // generate_private_key
     if (!(typeof seed === 'string')) {

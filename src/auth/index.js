@@ -77,7 +77,9 @@ Auth.isWif = function(privWif) {
     if (checksum.toString() == newChecksum.toString()) {
       isWif = true;
     }
-  } catch (e) {}
+  } catch (e) {
+    // empty block
+  }
   return isWif;
 };
 

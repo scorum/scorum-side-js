@@ -95,7 +95,7 @@ operations.forEach(operation => {
   };
 
   scorumBroadcast[operationName] = function scorumBroadcast$specializedSend(wif, ...args) {
-    debug(`Parsing operation "${operationName}" with`, { args });;
+    debug(`Parsing operation "${operationName}" with`, { args });
     const options = operationParams.reduce((memo, param, i) => {
       memo[param] = args[i]; // eslint-disable-line no-param-reassign
       return memo;

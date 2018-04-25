@@ -944,7 +944,7 @@ let sortOperation = (array, st_operation) => {
           (a, b) =>
             typeof firstEl(a) === 'number' && typeof firstEl(b) === 'number'
               ? firstEl(a) - firstEl(b)
-              : // A binary string compare does not work. Performanance is very good so HEX is used..  localeCompare is another option.
+              : // A binary string compare does not work. Performance is very good so HEX is used.
                 Buffer.isBuffer(firstEl(a)) && Buffer.isBuffer(firstEl(b))
                 ? strCmp(firstEl(a).toString('hex'), firstEl(b).toString('hex'))
                 : strCmp(firstEl(a).toString(), firstEl(b).toString())

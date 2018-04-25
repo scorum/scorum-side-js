@@ -1,7 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb"],
-  "plugins": ["prettier"],
+  "extends": ["eslint:recommended"],
   "env": {
     "es6": true,
     "node": true,
@@ -9,8 +8,7 @@
     "mocha": true
   },
   "rules": {
-    "no-debugger": 1,
-    "comma-dangle": ["error", "always-multiline"],
+    "import/no-extraneous-dependencies": 0,
     "max-len": [
       "error",
       120,
@@ -23,10 +21,15 @@
         "ignoreTemplateLiterals": true
       }
     ],
-    "no-mixed-operators": 0,
+    "no-array-constructor": 0,
     "no-confusing-arrow": 0,
-    "import/no-extraneous-dependencies": 0,
-    "react/sort-comp": 0,
-    "no-array-constructor": 0
+    "no-console": 0,
+    "no-constant-condition": 0,
+    "no-debugger": 1,
+    "no-fallthrough": 0,
+    "no-mixed-operators": 0,
+    "no-redeclare": 0,
+    "no-unused-vars": 0,
+    "valid-typeof": 0
   }
 }

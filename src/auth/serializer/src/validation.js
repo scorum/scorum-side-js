@@ -22,9 +22,9 @@ var MAX_SAFE_INT = 9007199254740991;
 var MIN_SAFE_INT = -9007199254740991;
 
 /**
-    Most validations are skipped and the value returned unchanged when an empty string, null, or undefined is encountered (except "required").
-
-    Validations support a string format for dealing with large numbers.
+ * Most validations are skipped and the value returned unchanged
+ * when an empty string, null, or undefined is encountered (except "required").
+ * Validations support a string format for dealing with large numbers.
 */
 module.exports = _my = {
   is_empty: (is_empty = function(value) {

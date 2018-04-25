@@ -142,7 +142,9 @@ class Serializer {
 
     let encoding;
     if (Buffer.isBuffer(valA) && Buffer.isBuffer(valB)) {
-      // A binary string compare does not work.  If localeCompare is well supported that could replace HEX.  Performanance is very good so comparing HEX works.
+      // A binary string compare does not work.
+      // If localeCompare is well supported that could replace HEX.
+      // Performance is very good so comparing HEX works.
       encoding = 'hex';
     }
 

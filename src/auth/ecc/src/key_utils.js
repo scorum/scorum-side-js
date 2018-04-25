@@ -20,10 +20,10 @@ module.exports = {
   },
 
   /**
-        A week random number generator can run out of entropy.  This should ensure even the worst random number implementation will be reasonably safe.
-
-        @param1 string entropy of at least 32 bytes
-    */
+   *  A week random number generator can run out of entropy.
+   *  This should ensure even the worst random number implementation will be reasonably safe.
+   *  @param1 string entropy of at least 32 bytes
+  */
   random32ByteBuffer(entropy = this.browserEntropy()) {
     if (!(typeof entropy === 'string')) {
       throw new Error('string required for entropy');
