@@ -50,19 +50,28 @@ const register = new Serializer('register', {
 });
 
 const update_profile = new Serializer('update_profile', {
-  account: string
+  account: string,
+  username: string,
+  location: string,
+  bio: string,
+  avatar_url: string,
+  cover_url: string
 });
 
 const follow = new Serializer('follow', {
-  account: string
+  account: string,
+  follow: string
 });
 
 const unfollow = new Serializer('unfollow', {
-  account: string
+  account: string,
+  unfollow: string
 });
 
 const upload_media = new Serializer('upload_media', {
-  account: string
+  account: string,
+  id: string,
+  media: string
 });
 
 const dummy = new Serializer('dummy', {

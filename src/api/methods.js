@@ -22,16 +22,16 @@ export default [
   {
     api: 'media_api',
     method: 'get_media',
-    params: ['cb']
+    params: ['account', 'id']
   },
   {
     api: 'follow_api',
     method: 'get_followers',
-    params: ['cb']
+    params: ['account', 'from', 'limit']
   },
   {
     api: 'follow_api',
     method: 'get_following',
-    params: ['cb']
+    params: ['account', 'from', 'limit']
   }
 ];

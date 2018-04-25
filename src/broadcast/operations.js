@@ -7,21 +7,21 @@ module.exports = [
   {
     roles: ['active', 'owner'],
     operation: 'update_profile',
-    params: ['account']
+    params: ['account', 'username', 'location', 'bio', 'avatar_url', 'cover_url']
   },
   {
     roles: ['active', 'owner'],
     operation: 'follow',
-    params: ['account']
+    params: ['account', 'follow']
   },
   {
     roles: ['active', 'owner'],
     operation: 'unfollow',
-    params: ['account']
+    params: ['account', 'unfollow']
   },
   {
     roles: ['active', 'owner'],
     operation: 'upload_media',
-    params: ['account']
+    params: ['account', 'id', 'media']
   }
 ];

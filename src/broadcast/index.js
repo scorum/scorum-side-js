@@ -9,7 +9,7 @@ import scorumAuth from '../auth';
 import { camelCase } from '../utils';
 
 const debug = newDebug('scorum:broadcast');
-const noop = function() {};
+const noop = () => { };
 const formatter = formatterFactory(scorumAPI);
 
 const scorumBroadcast = {};
@@ -20,9 +20,9 @@ const scorumBroadcast = {};
  * Sign and broadcast transactions on the scorum network
  */
 
-scorumBroadcast.send = function scorumBroadcast$send(tx, privKeys, callback) {
+scorumBroadcast.send = function scorumBroadcast$send(trx, privKeys, callback) {
   const resultP = scorumBroadcast
-    ._prepareTransaction(tx)
+    ._prepareTransaction(trx)
     .then(transaction => {
       debug('Signing transaction (transaction, transaction.operations)', transaction, transaction.operations);
       return Promise.join(transaction, scorumAuth.signTransaction(transaction, privKeys));
@@ -37,15 +37,17 @@ scorumBroadcast.send = function scorumBroadcast$send(tx, privKeys, callback) {
   resultP.nodeify(callback || noop);
 };
 
-scorumBroadcast._prepareTransaction = function scorumBroadcast$_prepareTransaction(tx) {
-  return Promise.resolve(Object.assign(
-    {
-      ref_block_num: 0,
-      ref_block_prefix: 0,
-      expiration: new Date(Date.now() + 600 * 1000)
-    },
-    tx
-  ));
+scorumBroadcast._prepareTransaction = function scorumBroadcast$_prepareTransaction(trx) {
+  return Promise.resolve(
+    Object.assign(
+      {
+        ref_block_num: 0,
+        ref_block_prefix: 0,
+        expiration: new Date(Date.now() + 600 * 1000)
+      },
+      trx
+    )
+  );
 };
 
 // Generated wrapper ----------------------------------------------------------
@@ -75,13 +77,13 @@ operations.forEach(operation => {
               options,
               options.json_metadata != null
                 ? {
-                    json_metadata: toString(options.json_metadata)
-                  }
+                  json_metadata: toString(options.json_metadata)
+                }
                 : {},
               useCommentPermlink && options.permlink == null
                 ? {
-                    permlink: formatter.commentPermlink(options.parent_author, options.parent_permlink)
-                  }
+                  permlink: formatter.commentPermlink(options.parent_author, options.parent_permlink)
+                }
                 : {}
             )
           ]
