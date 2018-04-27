@@ -20,6 +20,11 @@ export default [
     params: ['account']
   },
   {
+    api: 'account_api',
+    method: 'get_profiles',
+    params: ['accounts']
+  },
+  {
     api: 'media_api',
     method: 'get_media',
     params: ['account', 'id']
