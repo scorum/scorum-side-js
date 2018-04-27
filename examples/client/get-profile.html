@@ -7,15 +7,17 @@
 </head>
 
 <body>
-  <script src="../dist/scorum-side.min.js"></script>
+  <script src="../../dist/scorum-side.min.js"></script>
   <script>
     scorum.api.setOptions({ url: 'https://blog-api-dev.scorum.com/' });
     scorum.config.set('address_prefix', 'SCR');
     scorum.config.set('chain_id', 'd3c1f19a4947c296446583f988c43fd1a83818fabaf3454a0020198cb361ebd2');
 
-    scorum.api.getProfile(function (err, response) {
-      console.log(err, response);
-    });
+    scorum.api.getProfileWithAsync({
+      account: 'kristie'
+    })
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
   </script>
 </body>
 
