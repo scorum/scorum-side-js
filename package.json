@@ -56,6 +56,7 @@
     "debug": "^2.6.8",
     "detect-node": "^2.0.3",
     "ecurve": "^1.0.5",
+    "extract-text-webpack-plugin": "^3.0.2",
     "lodash": "^4.16.4",
     "secure-random": "^1.1.1",
     "ws": "^3.3.2"

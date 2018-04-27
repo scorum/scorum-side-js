@@ -1,4 +1,5 @@
 'use strict';
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
 const _ = require('lodash');
 const path = require('path');
@@ -80,11 +81,11 @@ function makeConfig(options) {
     module: {
       loaders: [
         {
-          test: /\.js?$/,
+          test: /\.js$/,
           loader: 'babel'
         },
         {
-          test: /\.json?$/,
+          test: /\.json$/,
           loader: 'json'
         }
       ]
