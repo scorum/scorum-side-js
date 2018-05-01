@@ -51,7 +51,7 @@ const register = new Serializer('register', {
 
 const update_profile = new Serializer('update_profile', {
   account: string,
-  username: string,
+  display_name: string,
   location: string,
   bio: string,
   avatar_url: string,

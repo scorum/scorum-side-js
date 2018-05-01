@@ -7,7 +7,7 @@ module.exports = [
   {
     roles: ['active', 'owner'],
     operation: 'update_profile',
-    params: ['account', 'username', 'location', 'bio', 'avatar_url', 'cover_url']
+    params: ['account', 'display_name', 'location', 'bio', 'avatar_url', 'cover_url']
   },
   {
     roles: ['active', 'owner'],
