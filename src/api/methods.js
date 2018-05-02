@@ -38,5 +38,10 @@ export default [
     api: 'follow_api',
     method: 'get_following',
     params: ['account', 'from', 'limit']
+  },
+  {
+    api: 'follow_api',
+    method: 'filter_following',
+    params: ['account', 'accounts_to_check']
   }
 ];
