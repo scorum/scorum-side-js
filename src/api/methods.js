@@ -43,5 +43,10 @@ export default [
     api: 'follow_api',
     method: 'filter_following',
     params: ['account', 'accounts_to_check']
+  },
+  {
+    api: 'category_api',
+    method: 'get_categories',
+    params: []
   }
 ];
