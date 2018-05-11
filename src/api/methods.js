@@ -48,5 +48,10 @@ export default [
     api: 'category_api',
     method: 'get_categories',
     params: []
+  },
+  {
+    api: 'blacklist_api',
+    method: 'get_blacklist',
+    params: ['offset', 'limit']
   }
 ];
