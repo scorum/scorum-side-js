@@ -53,5 +53,10 @@ export default [
     api: 'blacklist_api',
     method: 'get_blacklist',
     params: ['offset', 'limit']
+  },
+  {
+    api: 'blacklist_api',
+    method: 'is_blacklisted',
+    params: ['account', 'permlink']
   }
 ];
