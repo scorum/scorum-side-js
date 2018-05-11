@@ -50,12 +50,8 @@ export default class HttpTransport extends Transport {
     const id = data.id || this.id++;
     const params = [api, data.method, data.params];
     jsonRpc(this.options.uri, { method: 'call', id, params }).then(
-      res => {
-        callback(null, res);
-      },
-      err => {
-        callback(err);
-      }
+      res => callback(null, res),
+      err => callback(err),
     );
   }
 }
