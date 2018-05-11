@@ -13,7 +13,10 @@ ChainTypes.operations = {
   update_profile: 1,
   follow: 2,
   unfollow: 3,
-  upload_media: 4
+  upload_media: 4,
+  add_to_blacklist: 5,
+  add_to_blacklist_admin: 6,
+  remove_from_blacklist_admin: 7
 };
 
 ChainTypes.proposal_operations = {};

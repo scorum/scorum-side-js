@@ -23,5 +23,20 @@ module.exports = [
     roles: ['active', 'owner'],
     operation: 'upload_media',
     params: ['account', 'id', 'media', 'content_type']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'add_to_blacklist',
+    params: ['account', 'permlink']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'add_to_blacklist_admin',
+    params: ['account', 'blog_account', 'permlink']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'remove_from_blacklist_admin',
+    params: ['account', 'blog_account', 'permlink']
   }
 ];

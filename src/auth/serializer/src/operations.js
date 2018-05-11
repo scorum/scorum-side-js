@@ -75,6 +75,23 @@ const upload_media = new Serializer('upload_media', {
   content_type: string
 });
 
+const add_to_blacklist = new Serializer('add_to_blacklist', {
+  account: string,
+  permlink: string
+});
+
+const add_to_blacklist_admin = new Serializer('add_to_blacklist_admin', {
+  account: string,
+  blog_account: string,
+  permlink: string
+});
+
+const remove_from_blacklist_admin = new Serializer('remove_from_blacklist_admin', {
+  account: string,
+  blog_account: string,
+  permlink: string
+});
+
 const dummy = new Serializer('dummy', {
   something: string
 });
@@ -84,7 +101,10 @@ operation.st_operations = [
   update_profile,
   follow,
   unfollow,
-  upload_media
+  upload_media,
+  add_to_blacklist,
+  add_to_blacklist_admin,
+  remove_from_blacklist_admin
 ];
 
 const transaction = new Serializer('transaction', {
