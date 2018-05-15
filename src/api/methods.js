@@ -58,5 +58,10 @@ export default [
     api: 'blacklist_api',
     method: 'is_blacklisted',
     params: ['account', 'permlink']
+  },
+  {
+    api: 'account_api',
+    method: 'is_trusted',
+    params: ['account']
   }
 ];
