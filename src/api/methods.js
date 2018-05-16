@@ -47,7 +47,7 @@ export default [
   {
     api: 'category_api',
     method: 'get_categories',
-    params: []
+    params: ['domain']
   },
   {
     api: 'blacklist_api',
