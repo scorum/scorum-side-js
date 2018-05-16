@@ -92,6 +92,34 @@ const remove_from_blacklist_admin = new Serializer('remove_from_blacklist_admin'
   permlink: string
 });
 
+const add_category_admin = new Serializer('add_category_admin', {
+  account: string,
+  domain: string,
+  label: string,
+  order: uint32,
+  localization_key: string
+});
+
+const remove_category_admin = new Serializer('remove_category_admin', {
+  account: string,
+  domain: string,
+  label: string
+});
+
+const update_category_admin = new Serializer('update_category_admin', {
+  account: string,
+  domain: string,
+  label: string,
+  order: uint32,
+  localization_key: string
+});
+
+const set_account_trusted_admin = new Serializer('set_account_trusted_admin', {
+  account: string,
+  blog_account: string,
+  is_trusted: bool
+});
+
 const dummy = new Serializer('dummy', {
   something: string
 });
@@ -104,7 +132,11 @@ operation.st_operations = [
   upload_media,
   add_to_blacklist,
   add_to_blacklist_admin,
-  remove_from_blacklist_admin
+  remove_from_blacklist_admin,
+  add_category_admin,
+  remove_category_admin,
+  update_category_admin,
+  set_account_trusted_admin
 ];
 
 const transaction = new Serializer('transaction', {

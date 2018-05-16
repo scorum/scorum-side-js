@@ -38,5 +38,25 @@ module.exports = [
     roles: ['active', 'owner'],
     operation: 'remove_from_blacklist_admin',
     params: ['account', 'blog_account', 'permlink']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'add_category_admin',
+    params: ['account', 'domain', 'label', 'order', 'localization_key']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'remove_category_admin',
+    params: ['account', 'domain', 'label']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'update_category_admin',
+    params: ['account', 'domain', 'label', 'order', 'localization_key']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'set_account_trusted_admin',
+    params: ['account', 'blog_account', 'is_trusted']
   }
 ];

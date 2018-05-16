@@ -16,7 +16,11 @@ ChainTypes.operations = {
   upload_media: 4,
   add_to_blacklist: 5,
   add_to_blacklist_admin: 6,
-  remove_from_blacklist_admin: 7
+  remove_from_blacklist_admin: 7,
+  add_category_admin: 8,
+  remove_category_admin: 9,
+  update_category_admin: 10,
+  set_account_trusted_admin: 11
 };
 
 ChainTypes.proposal_operations = {};
