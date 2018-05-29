@@ -63,5 +63,10 @@ export default [
     api: 'account_api',
     method: 'is_trusted',
     params: ['account']
-  }
+  },
+  {
+    api: 'account_api',
+    method: 'get_trusted',
+    params: ['offset', 'limit']
+  },
 ];
