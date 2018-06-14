@@ -58,5 +58,15 @@ module.exports = [
     roles: ['active', 'owner'],
     operation: 'set_account_trusted_admin',
     params: ['account', 'blog_account', 'is_trusted']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'upsert_draft',
+    params: ['account', 'id', 'title', 'body', 'json_metadata']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'remove_draft',
+    params: ['account', 'id']
   }
 ];

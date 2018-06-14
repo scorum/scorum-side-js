@@ -20,7 +20,9 @@ ChainTypes.operations = {
   add_category_admin: 8,
   remove_category_admin: 9,
   update_category_admin: 10,
-  set_account_trusted_admin: 11
+  set_account_trusted_admin: 11,
+  upsert_draft: 12,
+  remove_draft: 13
 };
 
 ChainTypes.proposal_operations = {};

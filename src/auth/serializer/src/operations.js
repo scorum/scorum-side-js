@@ -120,6 +120,19 @@ const set_account_trusted_admin = new Serializer('set_account_trusted_admin', {
   is_trusted: bool
 });
 
+const upsert_draft = new Serializer('upsert_draft', {
+  account: string,
+  id: string,
+  title: string,
+  body: string,
+  json_metadata: string
+});
+
+const remove_draft = new Serializer('remove_draft', {
+  account: string,
+  id: string
+});
+
 const dummy = new Serializer('dummy', {
   something: string
 });
@@ -136,7 +149,9 @@ operation.st_operations = [
   add_category_admin,
   remove_category_admin,
   update_category_admin,
-  set_account_trusted_admin
+  set_account_trusted_admin,
+  upsert_draft,
+  remove_draft
 ];
 
 const transaction = new Serializer('transaction', {
