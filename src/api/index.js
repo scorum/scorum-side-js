@@ -5,6 +5,7 @@ import methods from './methods';
 import transports from './transports';
 import { camelCase } from '../utils';
 import { hash } from '../auth/ecc';
+import { signMethod } from '../auth';
 import { ops } from '../auth/serializer';
 import { jsonRpc } from './transports/http';
 import { sign as signRequest } from '@steemit/rpc-auth';
@@ -20,12 +21,33 @@ class Scorum extends EventEmitter {
       const methodName = method.method_name || camelCase(method.method);
       const methodParams = method.params || [];
 
-      this[`${methodName}With`] = (options, callback) => {
+      this[`${methodName}With`] = (...args) => {
+        let key;
+        let options;
+        let callback;
+
+        // When method is called using signed API
+        if (args.length === 3) {
+          key = args[0];
+          options = args[1];
+          callback = args[2];
+        } else {
+          options = args[0];
+          callback = args[1];
+        }
+
+        let params = methodParams.map(param => options[param]);
+        if (method.params[1] === 'salt' && method.params[2] === 'signature') {
+          const salt = Math.random().toString(36).substring(2);
+          const signature = signMethod(params[0], salt, params[3], key);
+          params = [params[0], salt, signature, params[3]];
+        }
+
         return this.send(
           method.api,
           {
             method: method.method,
-            params: methodParams.map(param => options[param])
+            params,
           },
           callback
         );

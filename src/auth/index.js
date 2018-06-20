@@ -1,4 +1,4 @@
-var bigi = require('bigi'),
+const bigi = require('bigi'),
   bs58 = require('bs58'),
   ecurve = require('ecurve'),
   Point = ecurve.Point,
@@ -10,9 +10,10 @@ var bigi = require('bigi'),
   PublicKey = require('./ecc/src/key_public'),
   hash = require('./ecc/src/hash');
 
-var Auth = {};
-var transaction = operations.transaction;
-var signed_transaction = operations.signed_transaction;
+const Auth = {};
+const transaction = operations.transaction;
+const signed_transaction = operations.signed_transaction;
+const signed_method = operations.signed_method;
 
 Auth.verify = function(name, password, auths) {
   var hasKey = false;
@@ -127,6 +128,28 @@ Auth.signTransaction = function(trx, keys) {
   }
 
   return signed_transaction.toObject(Object.assign(trx, { signatures: signatures }));
+};
+
+Auth.signMethod = (account, salt, params, key) => {
+  const cid = new Buffer(config.get('chain_id'), 'hex');
+  const buf = signed_method.toBuffer({
+    account,
+    salt,
+    parameters: convertIterableToHex(params),
+  });
+
+  return Signature.signBuffer(Buffer.concat([cid, buf]), key).toHex();
+};
+
+const convertIterableToHex = (iterable) => {
+  const chars = iterable
+    .map(item => typeof item === 'string' ? `"${item}"` : item.toString())
+    .join('');
+
+  return chars
+    .split('')
+    .map(char => char.charCodeAt(0).toString(16))
+    .join('');
 };
 
 module.exports = Auth;

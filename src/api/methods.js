@@ -69,4 +69,14 @@ export default [
     method: 'get_trusted',
     params: ['offset', 'limit']
   },
+  {
+    api: 'draft_api',
+    method: 'get_draft',
+    params: ['account', 'salt', 'signature', 'parameters']
+  },
+  {
+    api: 'draft_api',
+    method: 'get_drafts',
+    params: ['account', 'salt', 'signature', 'parameters']
+  }
 ];

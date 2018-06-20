@@ -45,6 +45,12 @@ const signed_transaction = new Serializer('signed_transaction', {
   signatures: array(bytes(65))
 })
 
+const signed_method = new Serializer('signed_method', {
+  account: string,
+  salt: string,
+  parameters: string,
+});
+
 const register = new Serializer('register', {
   account: string
 });
