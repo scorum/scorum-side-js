@@ -48,6 +48,11 @@ const signed_transaction = new Serializer('signed_transaction', {
 const signed_method = new Serializer('signed_method', {
   account: string,
   salt: string,
+});
+
+const signed_param_method = new Serializer('signed_param_method', {
+  account: string,
+  salt: string,
   parameters: string,
 });
 

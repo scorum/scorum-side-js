@@ -39,7 +39,7 @@ class Scorum extends EventEmitter {
         let params = methodParams.map(param => options[param]);
         if (method.params[1] === 'salt' && method.params[2] === 'signature') {
           const salt = Math.random().toString(36).substring(2);
-          const signature = signMethod(params[0], salt, params[3], key);
+          const signature = signMethod(params[0], salt, params[3] || [], key);
           params = [params[0], salt, signature, params[3]];
         }
 
