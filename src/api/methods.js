@@ -77,6 +77,11 @@ export default [
   {
     api: 'draft_api',
     method: 'get_drafts',
-    params: ['account', 'salt', 'signature', 'parameters']
+    params: ['account', 'salt', 'signature']
+  },
+  {
+    api: 'notification_api',
+    method: 'get_notifications',
+    params: ['account', 'salt', 'signature']
   }
 ];
