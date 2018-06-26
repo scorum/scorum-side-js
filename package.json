@@ -1,6 +1,6 @@
 {
   "name": "@scorum/scorum-side-js",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "Scorum.js the JavaScript API for Scorum sidechain",
   "main": "lib/index.js",
   "scripts": {
