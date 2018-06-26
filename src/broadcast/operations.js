@@ -26,7 +26,7 @@ module.exports = [
   },
   {
     roles: ['active', 'owner'],
-    operation: 'add_to_blacklist',
+    operation: 'mark_post_deleted',
     params: ['account', 'permlink']
   },
   {

@@ -14,7 +14,7 @@ ChainTypes.operations = {
   follow: 2,
   unfollow: 3,
   upload_media: 4,
-  add_to_blacklist: 5,
+  mark_post_deleted: 5,
   add_to_blacklist_admin: 6,
   remove_from_blacklist_admin: 7,
   add_category_admin: 8,

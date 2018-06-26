@@ -86,7 +86,7 @@ const upload_media = new Serializer('upload_media', {
   content_type: string
 });
 
-const add_to_blacklist = new Serializer('add_to_blacklist', {
+const mark_post_deleted = new Serializer('mark_post_deleted', {
   account: string,
   permlink: string
 });
@@ -154,7 +154,7 @@ operation.st_operations = [
   follow,
   unfollow,
   upload_media,
-  add_to_blacklist,
+  mark_post_deleted,
   add_to_blacklist_admin,
   remove_from_blacklist_admin,
   add_category_admin,
