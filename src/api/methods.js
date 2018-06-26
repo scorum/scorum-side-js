@@ -83,5 +83,15 @@ export default [
     api: 'notification_api',
     method: 'get_notifications',
     params: ['account', 'salt', 'signature']
+  },
+  {
+    api: 'post_api',
+    method: 'is_post_deleted',
+    params: ['account', 'permlink']
+  },
+  {
+    api: 'post_api',
+    method: 'get_deleted_posts',
+    params: ['offset', 'limit']
   }
 ];
