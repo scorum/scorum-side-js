@@ -7,7 +7,6 @@ const users = require('../config/users');
       account: users.roselle.account,
       domain: 'com',
       label: 'soccer',
-      order: 1,
       localization_key: 'en.soccer'
     });
     console.log(response);

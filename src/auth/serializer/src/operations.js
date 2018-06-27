@@ -107,7 +107,6 @@ const add_category_admin = new Serializer('add_category_admin', {
   account: string,
   domain: string,
   label: string,
-  order: uint32,
   localization_key: string
 });
 

@@ -42,7 +42,7 @@ module.exports = [
   {
     roles: ['active', 'owner'],
     operation: 'add_category_admin',
-    params: ['account', 'domain', 'label', 'order', 'localization_key']
+    params: ['account', 'domain', 'label', 'localization_key']
   },
   {
     roles: ['active', 'owner'],
