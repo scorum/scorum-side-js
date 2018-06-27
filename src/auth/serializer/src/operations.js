@@ -144,8 +144,13 @@ const remove_draft = new Serializer('remove_draft', {
   id: string
 });
 
-const dummy = new Serializer('dummy', {
-  something: string
+const mark_notification_read = new Serializer('mark_notification_read', {
+  account: string,
+  id: string
+});
+
+const mark_all_notifications_read = new Serializer('mark_all_notifications_read', {
+  account: string
 });
 
 operation.st_operations = [
@@ -162,7 +167,9 @@ operation.st_operations = [
   update_category_admin,
   set_account_trusted_admin,
   upsert_draft,
-  remove_draft
+  remove_draft,
+  mark_notification_read,
+  mark_all_notifications_read
 ];
 
 const transaction = new Serializer('transaction', {

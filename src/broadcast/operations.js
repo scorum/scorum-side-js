@@ -68,5 +68,15 @@ module.exports = [
     roles: ['active', 'owner'],
     operation: 'remove_draft',
     params: ['account', 'id']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'mark_notification_read',
+    params: ['account', 'id']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'mark_all_notifications_read',
+    params: ['account']
   }
 ];
