@@ -152,6 +152,10 @@ const mark_all_notifications_read = new Serializer('mark_all_notifications_read'
   account: string
 });
 
+const mark_all_notifications_seen = new Serializer('mark_all_notifications_seen', {
+  account: string
+});
+
 operation.st_operations = [
   register,
   update_profile,
@@ -168,7 +172,8 @@ operation.st_operations = [
   upsert_draft,
   remove_draft,
   mark_notification_read,
-  mark_all_notifications_read
+  mark_all_notifications_read,
+  mark_all_notifications_seen
 ];
 
 const transaction = new Serializer('transaction', {

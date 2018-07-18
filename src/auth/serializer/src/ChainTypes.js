@@ -24,7 +24,8 @@ ChainTypes.operations = {
   upsert_draft: 12,
   remove_draft: 13,
   mark_notification_read: 14,
-  mark_all_notifications_read: 15
+  mark_all_notifications_read: 15,
+  mark_all_notifications_seen: 16
 };
 
 ChainTypes.proposal_operations = {};

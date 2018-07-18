@@ -78,5 +78,10 @@ module.exports = [
     roles: ['active', 'owner'],
     operation: 'mark_all_notifications_read',
     params: ['account']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'mark_all_notifications_seen',
+    params: ['account']
   }
 ];
