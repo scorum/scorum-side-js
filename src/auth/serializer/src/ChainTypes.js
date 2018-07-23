@@ -25,7 +25,8 @@ ChainTypes.operations = {
   remove_draft: 13,
   mark_notification_read: 14,
   mark_all_notifications_read: 15,
-  mark_all_notifications_seen: 16
+  mark_all_notifications_seen: 16,
+  update_profile_settings: 17
 };
 
 ChainTypes.proposal_operations = {};

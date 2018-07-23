@@ -93,5 +93,10 @@ export default [
     api: 'post_api',
     method: 'get_deleted_posts',
     params: ['offset', 'limit']
+  },
+  {
+    api: 'account_api',
+    method: 'get_profile_settings',
+    params: ['account', 'salt', 'signature', 'parameters']
   }
 ];
