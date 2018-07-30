@@ -4,6 +4,8 @@ import Transport from './base';
 
 const debug = newDebug('scorum:http');
 
+const CONVERT_METHODS = ['get_address', 'estimate_scr_amount', 'get_orders'];
+
 class RPCError extends Error {
   constructor(rpcError) {
     super(rpcError.message);
@@ -13,9 +15,9 @@ class RPCError extends Error {
   }
 }
 
-export function jsonRpc(uri, { method, id, params }) {
+export function jsonRpc(url, { method, id, params }) {
   const payload = { id, jsonrpc: '2.0', method, params };
-  return fetch(uri, {
+  return fetch(url, {
     body: JSON.stringify(payload),
     method: 'post',
     mode: 'cors',
@@ -43,13 +45,17 @@ export function jsonRpc(uri, { method, id, params }) {
 
 export default class HttpTransport extends Transport {
   send(api, data, callback) {
-    if (this.options.useAppbaseApi) {
-      api = 'condenser_api';
+    let url = this.options.url;
+    if (CONVERT_METHODS.includes(data.method)) {
+      url = this.options.convert_url;
+      if (!url) {
+        throw new Error(`convert_url is ${url}. Check please`);
+      }
     }
     debug('Scorum::send', api, data);
     const id = data.id || this.id++;
     const params = [api, data.method, data.params];
-    jsonRpc(this.options.uri, { method: 'call', id, params }).then(
+    jsonRpc(url, { method: 'call', id, params }).then(
       res => callback(null, res),
       err => callback(err),
     );

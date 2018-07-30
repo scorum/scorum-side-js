@@ -71,17 +71,12 @@ class Scorum extends EventEmitter {
 
   _setTransport(options) {
     if (options.url && options.url.match('^((http|https)?://)')) {
-      options.uri = options.url;
       options.transport = 'http';
       this._transportType = options.transport;
       this.options = options;
       this.transport = new transports.http(options);
     } else if (options.url && options.url.match('^((ws|wss)?://)')) {
-      options.websocket = options.url;
-      options.transport = 'ws';
-      this._transportType = options.transport;
-      this.options = options;
-      this.transport = new transports.ws(options);
+      throw new TypeError('Invalid `transport`. Library support only `http` transport');
     } else if (options.transport) {
       if (this.transport && this._transportType !== options.transport) {
         this.transport.stop();
@@ -91,14 +86,14 @@ class Scorum extends EventEmitter {
 
       if (typeof options.transport === 'string') {
         if (!transports[options.transport]) {
-          throw new TypeError('Invalid `transport`, valid values are `http`, `ws` or a class');
+          throw new TypeError('Invalid `transport`, valid values are `http` or a class');
         }
         this.transport = new transports[options.transport](options);
       } else {
         this.transport = new options.transport(options);
       }
     } else {
-      this.transport = new transports.ws(options);
+      this.transport = new transports.http(options);
     }
   }
 
@@ -160,6 +155,7 @@ class Scorum extends EventEmitter {
         }
       };
     }
+
     return this.transport.send(api, data, cb);
   }
 
@@ -169,7 +165,7 @@ class Scorum extends EventEmitter {
       return;
     }
     const id = ++this.seqNo;
-    jsonRpc(this.options.uri, { method, params, id }).then(
+    jsonRpc(this.options.url, { method, params, id }).then(
       res => {
         callback(null, res);
       },
@@ -192,7 +188,7 @@ class Scorum extends EventEmitter {
       callback(error);
       return;
     }
-    jsonRpc(this.options.uri, request).then(
+    jsonRpc(this.options.url, request).then(
       res => {
         callback(null, res);
       },
@@ -207,18 +203,6 @@ class Scorum extends EventEmitter {
     this._setLogger(options);
     this._setTransport(options);
     this.transport.setOptions(options);
-  }
-
-  setWebSocket(url) {
-    this.setOptions({
-      websocket: url
-    });
-  }
-
-  setUri(url) {
-    this.setOptions({
-      uri: url
-    });
   }
 
   streamBlockNumber(mode = 'head', callback, ts = 200) {

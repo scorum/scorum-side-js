@@ -98,5 +98,20 @@ export default [
     api: 'account_api',
     method: 'get_profile_settings',
     params: ['account', 'salt', 'signature', 'parameters']
-  }
+  },
+  {
+    api: 'eth_api',
+    method: 'get_address',
+    params: ['account', 'salt', 'signature', 'parameters']
+  },
+  {
+    api: 'eth_api',
+    method: 'estimate_scr_amount',
+    params: ['account', 'salt', 'signature', 'parameters']
+  },
+  {
+    api: 'account_api',
+    method: 'get_orders',
+    params: ['account', 'salt', 'signature', 'parameters']
+  },
 ];

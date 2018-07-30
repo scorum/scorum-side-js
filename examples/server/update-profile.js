@@ -6,7 +6,7 @@ const users = require('../config/users');
     const accountMediaBucket = `https://scorumblogdev.blob.core.windows.net/media/${users.kristie.account}`;
     const response = await scorum.broadcast.updateProfileWithAsync(users.kristie.privateKey, {
       account: users.kristie.account,
-      username: 'Kristie Smith',
+      display_name: 'Kristie Smith',
       location: 'New York',
       bio: 'The biography is here...',
       avatar_url: `${accountMediaBucket}/avatar`,

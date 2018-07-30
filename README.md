@@ -1,11 +1,13 @@
 # Scorum-side.js
 Scorum-side.js -- JavaScript API for Scorum sidechain.
 
+Library support only http transport
+
 ## Browser
 ```html
 <script src="./scorum-side.min.js"></script>
 <script>
-    scorum.api.setOptions({ url: 'https://blog-api-dev.scorum.com/' });
+    scorum.api.setOptions({ url: 'https://blog-api-dev.scorum.com/', convert_url: 'https://converter-dev.scorum.com/' });
     scorum.config.set('address_prefix', 'SCR');
     scorum.config.set('chain_id', 'd3c1f19a4947c296446583f988c43fd1a83818fabaf3454a0020198cb361ebd2');
 
