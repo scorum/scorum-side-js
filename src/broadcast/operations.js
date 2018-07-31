@@ -87,6 +87,6 @@ module.exports = [
   {
     roles: ['active', 'owner'],
     operation: 'update_profile_settings',
-    params: ['enable_email_unseen_notifications']
+    params: ['account', 'enable_email_unseen_notifications']
   }
 ];
