@@ -157,6 +157,7 @@ const mark_all_notifications_seen = new Serializer('mark_all_notifications_seen'
 });
 
 const update_profile_settings = new Serializer('update_profile_settings', {
+  account: string,
   enable_email_unseen_notifications: bool,
 });
 
