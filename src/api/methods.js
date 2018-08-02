@@ -114,4 +114,9 @@ export default [
     method: 'get_orders',
     params: ['account', 'salt', 'signature', 'parameters']
   },
+  {
+    api: 'post_api',
+    method: 'get_from_network',
+    params: ['account', 'domain', 'offset', 'limit']
+   }
 ];
