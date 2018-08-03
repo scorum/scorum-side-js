@@ -4,7 +4,13 @@ import Transport from './base';
 
 const debug = newDebug('scorum:http');
 
-const CONVERT_METHODS = ['get_address', 'estimate_scr_amount', 'get_orders'];
+const CONVERT_METHODS = [
+  'get_address',
+  'estimate_scr_amount',
+  'estimate_eth_amount',
+  'scr_supply',
+  'get_orders'
+];
 
 class RPCError extends Error {
   constructor(rpcError) {

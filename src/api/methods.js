@@ -110,6 +110,16 @@ export default [
     params: ['account', 'salt', 'signature', 'parameters']
   },
   {
+    api: 'eth_api',
+    method: 'estimate_eth_amount',
+    params: ['account', 'salt', 'signature', 'parameters']
+  },
+  {
+    api: 'eth_api',
+    method: 'scr_supply',
+    params: ['account', 'salt', 'signature', 'parameters']
+  },
+  {
     api: 'account_api',
     method: 'get_orders',
     params: ['account', 'salt', 'signature', 'parameters']
