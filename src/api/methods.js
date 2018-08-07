@@ -128,5 +128,25 @@ export default [
     api: 'post_api',
     method: 'get_from_network',
     params: ['account', 'domain', 'offset', 'limit']
-   }
+  },
+  {
+    api: 'post_api',
+    method: 'check_plagiarism',
+    params: ['account', 'salt', 'signature', 'parameters']
+  },
+  {
+    api: 'post_api',
+    method: 'get_plagiarism_check_details',
+    params: ['author', 'permlink']
+  },
+  {
+    api: 'post_api',
+    method: 'get_votes',
+    params: ['author', 'permlink']
+  },
+  {
+    api: 'post_api',
+    method: 'get_site_titles',
+    params: ['account', 'salt', 'signature', 'parameters']
+  },
 ];

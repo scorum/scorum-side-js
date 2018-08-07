@@ -1,5 +1,4 @@
 const scorum = require('../config/scorum');
-const users = require('../config/users');
 
 (async () => {
   try {
