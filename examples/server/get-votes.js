@@ -4,7 +4,7 @@ const scorum = require('../config/scorum');
   try {
     const response = await scorum.api.getVotesWithAsync({
       author: 'author',
-      permlink: 'permlink'
+      permlink: 'permlink',
     });
     console.log(response);
   } catch (err) {

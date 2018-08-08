@@ -145,8 +145,8 @@ export default [
     params: ['author', 'permlink']
   },
   {
-    api: 'post_api',
-    method: 'get_site_titles',
+    api: 'sites_api',
+    method: 'get_titles',
     params: ['account', 'salt', 'signature', 'parameters']
   },
 ];

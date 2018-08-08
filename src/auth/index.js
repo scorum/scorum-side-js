@@ -146,7 +146,15 @@ Auth.signMethod = (account, salt, params, key) => {
 };
 
 const convertValueToHex = (value) => {
-  const chars = typeof value === 'string' ? `"${value}"` : value.toString();
+  let chars;
+
+  if (Array.isArray(value)) {
+    chars = `[${value.map(item => typeof item === 'string' ? `"${item}"` : item).join(',')}]`;
+  } else if (typeof value === 'string') {
+    chars = `"${value}"`;
+  } else {
+    chars = value;
+  }
 
   return chars
     .split('')
