@@ -6,7 +6,7 @@ const users = require('../config/users');
   try {
     const response = await scorum.api.checkPlagiarismWithAsync(users.kristie.privateKey, {
       account: users.kristie.account,
-      parameters: ['permlink', 'text', 'domain'],
+      parameters: ['permlink', 'text', 'me'],
     });
     console.log(response);
   } catch (err) {

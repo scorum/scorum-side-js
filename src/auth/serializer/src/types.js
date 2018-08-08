@@ -694,8 +694,9 @@ Types.vote_id = {
   }
 };
 
-Types.optional = function(st_operation) {
+Types.optional = (st_operation) => {
   v.required(st_operation, 'st_operation');
+
   return {
     fromByteBuffer(b) {
       if (!(b.readUint8() === 1)) {
@@ -704,11 +705,55 @@ Types.optional = function(st_operation) {
       return st_operation.fromByteBuffer(b);
     },
     appendByteBuffer(b, object) {
-      if (object !== null && object !== undefined) {
+      if (object != null) {
         b.writeUint8(1);
         st_operation.appendByteBuffer(b, object);
       } else {
         b.writeUint8(0);
+      }
+      return;
+    },
+    fromObject(object) {
+      if (object === undefined) {
+        return undefined;
+      }
+      return st_operation.fromObject(object);
+    },
+    toObject(object, debug = {}) {
+      // toObject is only null save if use_default is true
+      var result_object = (() => {
+        if (!debug.use_default && object === undefined) {
+          return undefined;
+        } else {
+          return st_operation.toObject(object, debug);
+        }
+      })();
+
+      if (debug.annotate) {
+        if (typeof result_object === 'object') {
+          result_object.__optional = 'parent is optional';
+        } else {
+          result_object = { __optional: result_object };
+        }
+      }
+      return result_object;
+    }
+  };
+};
+
+Types.extra = (st_operation) => {
+  v.required(st_operation, 'st_operation');
+
+  return {
+    fromByteBuffer(b) {
+      if (!(b.readUint8() === 1)) {
+        return undefined;
+      }
+      return st_operation.fromByteBuffer(b);
+    },
+    appendByteBuffer(b, object) {
+      if (object != null) {
+        st_operation.appendByteBuffer(b, object);
       }
       return;
     },

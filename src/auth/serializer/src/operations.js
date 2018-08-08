@@ -20,6 +20,7 @@ const {
   public_key,
   time_point_sec,
   optional,
+  extra,
   asset
 } = types;
 
@@ -48,12 +49,9 @@ const signed_transaction = new Serializer('signed_transaction', {
 const signed_method = new Serializer('signed_method', {
   account: string,
   salt: string,
-});
-
-const signed_param_method = new Serializer('signed_param_method', {
-  account: string,
-  salt: string,
-  parameters: string,
+  param1: extra(string),
+  param2: extra(string),
+  param3: extra(string)
 });
 
 const register = new Serializer('register', {

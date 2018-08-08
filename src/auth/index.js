@@ -14,7 +14,6 @@ const Auth = {};
 const transaction = operations.transaction;
 const signed_transaction = operations.signed_transaction;
 const signed_method = operations.signed_method;
-const signed_param_method = operations.signed_param_method;
 
 Auth.verify = function(name, password, auths) {
   var hasKey = false;
@@ -134,23 +133,20 @@ Auth.signTransaction = function(trx, keys) {
 Auth.signMethod = (account, salt, params, key) => {
   const baseFields = { account, salt };
   const cid = new Buffer(config.get('chain_id'), 'hex');
-  let buf;
 
-  if (params.length) {
-    buf = signed_param_method.toBuffer(Object.assign(baseFields, {
-      parameters: convertIterableToHex(params),
-    }));
-  } else {
-    buf = signed_method.toBuffer(baseFields)
-  }
+  const paramFields = params
+    .map(convertValueToHex)
+    .reduce((accum, val, idx) => {
+      accum[`param${idx + 1}`] = val;
+      return accum;
+    }, {});
+  const buf = signed_method.toBuffer(Object.assign(baseFields, paramFields));
 
   return Signature.signBuffer(Buffer.concat([cid, buf]), key).toHex();
 };
 
-const convertIterableToHex = (iterable) => {
-  const chars = iterable
-    .map(item => typeof item === 'string' ? `"${item}"` : item.toString())
-    .join('');
+const convertValueToHex = (value) => {
+  const chars = typeof value === 'string' ? `"${value}"` : value.toString();
 
   return chars
     .split('')
