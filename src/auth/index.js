@@ -153,7 +153,7 @@ const convertValueToHex = (value) => {
   } else if (typeof value === 'string') {
     chars = `"${value}"`;
   } else {
-    chars = value;
+    chars = value.toString();
   }
 
   return chars
