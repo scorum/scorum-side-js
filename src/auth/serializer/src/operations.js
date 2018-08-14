@@ -156,7 +156,12 @@ const mark_all_notifications_seen = new Serializer('mark_all_notifications_seen'
 
 const update_profile_settings = new Serializer('update_profile_settings', {
   account: string,
-  enable_email_unseen_notifications: bool,
+  enable_email_unseen_notifications: bool
+});
+
+const register_push_token = new Serializer('register_push_token', {
+  account: string,
+  token: string
 });
 
 operation.st_operations = [
@@ -177,7 +182,8 @@ operation.st_operations = [
   mark_notification_read,
   mark_all_notifications_read,
   mark_all_notifications_seen,
-  update_profile_settings
+  update_profile_settings,
+  register_push_token
 ];
 
 const transaction = new Serializer('transaction', {

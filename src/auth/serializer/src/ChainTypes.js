@@ -26,7 +26,8 @@ ChainTypes.operations = {
   mark_notification_read: 14,
   mark_all_notifications_read: 15,
   mark_all_notifications_seen: 16,
-  update_profile_settings: 17
+  update_profile_settings: 17,
+  register_push_token: 18
 };
 
 ChainTypes.proposal_operations = {};

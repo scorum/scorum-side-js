@@ -88,5 +88,10 @@ module.exports = [
     roles: ['active', 'owner'],
     operation: 'update_profile_settings',
     params: ['account', 'enable_email_unseen_notifications']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'register_push_token',
+    params: ['account', 'token']
   }
 ];
