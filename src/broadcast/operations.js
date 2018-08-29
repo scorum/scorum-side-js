@@ -93,5 +93,10 @@ module.exports = [
     roles: ['active', 'owner'],
     operation: 'register_push_token',
     params: ['account', 'token']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'downvote',
+    params: ['account', 'author', 'permlink', 'reason', 'comment']
   }
 ];

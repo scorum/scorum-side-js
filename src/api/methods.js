@@ -149,4 +149,9 @@ export default [
     method: 'get_titles',
     params: ['account', 'salt', 'signature', 'parameters']
   },
+  {
+    api: 'post_api',
+    method: 'get_downvotes',
+    params: ['author', 'permlink']
+  }
 ];

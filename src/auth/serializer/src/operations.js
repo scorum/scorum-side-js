@@ -164,6 +164,14 @@ const register_push_token = new Serializer('register_push_token', {
   token: string
 });
 
+const downvote = new Serializer('downvote', {
+  account: string,
+  author: string,
+  permlink: string,
+  reason: string,
+  comment: string
+});
+
 operation.st_operations = [
   register,
   update_profile,
@@ -183,7 +191,8 @@ operation.st_operations = [
   mark_all_notifications_read,
   mark_all_notifications_seen,
   update_profile_settings,
-  register_push_token
+  register_push_token,
+  downvote
 ];
 
 const transaction = new Serializer('transaction', {
