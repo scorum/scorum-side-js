@@ -172,6 +172,12 @@ const downvote = new Serializer('downvote', {
   comment: optional(string)
 });
 
+const remove_downvote = new Serializer('remove_downvote', {
+  account: string,
+  author: string,
+  permlink: string
+});
+
 operation.st_operations = [
   register,
   update_profile,
@@ -192,7 +198,8 @@ operation.st_operations = [
   mark_all_notifications_seen,
   update_profile_settings,
   register_push_token,
-  downvote
+  downvote,
+  remove_downvote
 ];
 
 const transaction = new Serializer('transaction', {

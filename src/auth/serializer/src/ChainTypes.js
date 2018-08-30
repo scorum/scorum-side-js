@@ -28,7 +28,8 @@ ChainTypes.operations = {
   mark_all_notifications_seen: 16,
   update_profile_settings: 17,
   register_push_token: 18,
-  downvote: 19
+  downvote: 19,
+  remove_downvote: 20
 };
 
 ChainTypes.proposal_operations = {};

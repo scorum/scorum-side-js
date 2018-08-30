@@ -98,5 +98,10 @@ module.exports = [
     roles: ['active', 'owner'],
     operation: 'downvote',
     params: ['account', 'author', 'permlink', 'reason', 'comment']
+  },
+  {
+    roles: ['active', 'owner'],
+    operation: 'remove_downvote',
+    params: ['account', 'author', 'permlink']
   }
 ];
