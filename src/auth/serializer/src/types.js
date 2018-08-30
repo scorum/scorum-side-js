@@ -706,10 +706,10 @@ Types.optional = (st_operation) => {
     },
     appendByteBuffer(b, object) {
       if (object != null) {
-        b.writeUint8(1);
+        // b.writeUint8(1);
         st_operation.appendByteBuffer(b, object);
       } else {
-        b.writeUint8(0);
+       // b.writeUint8(0);
       }
       return;
     },

@@ -169,7 +169,7 @@ const downvote = new Serializer('downvote', {
   author: string,
   permlink: string,
   reason: string,
-  comment: string
+  comment: optional(string)
 });
 
 operation.st_operations = [
