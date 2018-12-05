@@ -115,6 +115,11 @@ export default [
     params: ['account', 'salt', 'signature', 'parameters']
   },
   {
+    api: 'settings_api',
+    method: 'get_eth_scr_fixed_price',
+    params: ['account', 'salt', 'signature', 'parameters']
+  },
+  {
     api: 'eth_api',
     method: 'scr_supply',
     params: ['account', 'salt', 'signature', 'parameters']

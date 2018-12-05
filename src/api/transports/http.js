@@ -8,6 +8,7 @@ const CONVERT_METHODS = [
   'get_address',
   'estimate_scr_amount',
   'estimate_eth_amount',
+  'get_eth_scr_fixed_price',
   'scr_supply',
   'get_orders'
 ];
